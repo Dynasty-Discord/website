@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
-    modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
+    modules: ["@nuxt/content", "@nuxt/ui"],
     tailwindcss: {
         cssPath: ['~/assets/css/tailwind.css', { injectPosition: "first" }],
         configPath: 'tailwind.config',
@@ -10,5 +10,10 @@ export default defineNuxtConfig({
         },
         config: {},
         viewer: true,
+    },
+    content: {
+        highlight: {
+            theme: "dracula"
+        }
     }
 })
