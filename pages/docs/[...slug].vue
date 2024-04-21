@@ -6,7 +6,7 @@ const description = content.description;
 
 <template>
   <main class="flex items-center justify-center">
-    <div class="grid grid-cols-8 p-4 gap-4 max-w-[1200px]">
+    <div class="grid grid-cols-8 p-4 gap-4 max-w-[1200px] w-full">
       <DocsSideBar class="col-span-2" />
       <div class="document col-span-6 w-full max-w-[800px]">
         <h1 class="text-4xl font-bold text-white">{{ title }}</h1>
