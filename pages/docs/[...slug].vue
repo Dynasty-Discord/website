@@ -1,14 +1,28 @@
+<script setup lang="ts">
+const content = await queryContent(useRoute().fullPath.split("#")[0]).findOne();
+const title = content.title;
+const description = content.description;
+</script>
+
 <template>
-  <main class="grid grid-cols-5">
-    <DocsSideBar class="col-span-1" />
-    <div class="document col-span-4 w-full max-w-[800px] my-8">
-      <ContentDoc />
+  <main class="flex items-center justify-center">
+    <div class="grid grid-cols-8 p-4 gap-4 max-w-[1200px]">
+      <DocsSideBar class="col-span-2" />
+      <div class="document col-span-6 w-full max-w-[800px]">
+        <h1 class="text-4xl font-bold text-white">{{ title }}</h1>
+        <p class="text-gray-400">{{ description }}</p>
+        <ContentDoc />
+      </div>
     </div>
   </main>
 </template>
 <style scoped>
 .document :deep(pre) {
-  @apply bg-gray-800 text-white p-4 my-2 rounded flex-wrap overflow-x-auto;
+  @apply bg-zinc-800 text-white p-4 my-2 rounded flex-wrap overflow-x-auto;
+}
+
+.document :deep(a) {
+  @apply text-orange-400 hover:underline transition-all duration-200 ease-in-out;
 }
 
 .document :deep(h1) {
@@ -16,7 +30,7 @@
 }
 
 .document :deep(h2) {
-  @apply text-2xl font-bold my-3;
+  @apply text-2xl font-bold my-3 text-white;
 }
 
 .document :deep(h3) {
@@ -32,11 +46,7 @@
 }
 
 .document :deep(h6) {
-  @apply text-sm font-bold my-2;
-}
-
-.document :deep(a) {
-  @apply text-blue-500;
+  @apply text-sm font-bold my-2 text-white;
 }
 
 .document :deep(ul) {
@@ -52,7 +62,7 @@
 }
 
 .document :deep(blockquote) {
-  @apply border-l-4 border-gray-800 bg-gray-900 text-white p-2 my-2;
+  @apply border-l-4 border-zinc-600 bg-zinc-900 text-white p-2 my-2;
 }
 
 .document :deep(img) {
