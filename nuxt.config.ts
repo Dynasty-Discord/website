@@ -10,5 +10,10 @@ export default defineNuxtConfig({
         },
         config: {},
         viewer: true,
+    },
+    content: {
+        highlight: {
+            theme: "dracula"
+        }
     }
 })
